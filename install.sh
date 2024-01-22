@@ -2,6 +2,7 @@
 
 TRUE=0
 FALSE=1
+dotfiles_repo="https://github.com/zpm-shell/zpm-dotfiles-template.git"
 dotfiles_dir="${HOME}/.zpm-dotfiles"
 
 ##
@@ -88,6 +89,25 @@ ${ZSHRC_END_SYMBOL}
 EOF
 }
 
+##
+# check if the zpm dotfiles is already installed
+# @return {boolean} true if the zpm dotfiles is already installed
+##
+function check_zpm_dotfiles() {
+    if [ -d "${dotfiles_dir}" ]; then
+        return ${TRUE}
+    fi
+    return ${FALSE}
+}
+
+##
+# install the zpm dotfiles
+# @return {boolean} true if the zpm dotfiles is already installed
+##
+function install_zpm_dotfiles() {
+    git clone  ${dotfiles_repo} ${dotfiles_dir}
+}
+
 check_zsh_exists || print_error "zsh is not installed"
 check_curl_exists || print_error "curl is not installed"
 check_git_exists || print_error "git is not installed"
@@ -95,6 +115,10 @@ if ! check_zpm_exists; then
   curl -fsSL -o install.sh https://raw.githubusercontent.com/zpm-shell/zpm/0.0.29/install.sh && source install.sh
 fi
 
+ check_zpm_dotfiles && print_error "zpm dotfiles is already installed"
+
+ install_zpm_dotfiles
+ 
 if ! check_zshrc; then
     add_zshrc
 fi 
