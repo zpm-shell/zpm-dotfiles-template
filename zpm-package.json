@@ -1,0 +1,22 @@
+{
+    "name": ".zpm-dotfiles-template",
+    "version": "0.0.1",
+    "description": "a zpm dotfiles",
+    "main": "src/main.zsh",
+    "scripts": {
+      "test": "zpm test"
+    },
+    "plugins": [
+        {
+            "name": "first-plugin",
+            "description": "This is the first plugin",
+            "file":"./src/plugins/first-plugin.zsh",
+            "entry": "main",
+            "cmd": "first-plugin"
+        }
+    ],
+    "packageType": "dotfiles",
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
