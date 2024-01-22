@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 local TRUE=0
 local FALSE=1
@@ -9,7 +9,7 @@ local dotfiles_dir="${HOME}/.zpm-dotfiles"
 # @returnm {boolean} true if zsh is installed
 ##
 function check_zsh_exists() {
-    if [[ -z $(command -v zsh) ]]; then
+    if [ -z $(command -v zsh) ]; then
         return ${FALSE}
     fi
     return ${TRUE}
@@ -20,7 +20,7 @@ function check_zsh_exists() {
 # @returnm {boolean} true if zpm is installed
 ##
 function check_zpm_exists() {
-    if [[ -z $(command -v zpm) ]]; then
+    if [ -z $(command -v zpm) ]; then
         return ${FALSE}
     fi
     return ${TRUE}
@@ -31,7 +31,7 @@ function check_zpm_exists() {
 # @returnm {boolean} true if git is installed
 ##
 function check_git_exists() {
-    if [[ -z $(command -v git) ]]; then
+    if [ -z $(command -v git) ]; then
         return ${FALSE}
     fi
     return ${TRUE}
@@ -42,7 +42,7 @@ function check_git_exists() {
 # @returnm {boolean} true if curl is installed
 ##
 function check_curl_exists() {
-    if [[ -z $(command -v curl) ]]; then
+    if [ -z $(command -v curl) ]; then
         return ${FALSE}
     fi
     return ${TRUE}
@@ -64,7 +64,7 @@ local ZSHRC_END_SYMBOL="# zpm end load zpm-dotfiles"
 # @return {boolean} true if the config is already in the zshrc
 ##
 function check_zshrc() {
-    if [[ -z $(grep "${ZSHRC_START_SYMBOL}" ~/.zshrc) ]]; then
+    if [ -z $(grep "${ZSHRC_START_SYMBOL}" ~/.zshrc) ]; then
         return ${FALSE}
     fi
 }
