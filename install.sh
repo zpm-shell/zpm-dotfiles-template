@@ -122,3 +122,5 @@ fi
 if ! check_zshrc; then
     add_zshrc
 fi 
+
+[ -f install.sh ] && rm -f install.sh
