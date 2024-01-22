@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-local TRUE=0
-local FALSE=1
-local dotfiles_dir="${HOME}/.zpm-dotfiles"
+TRUE=0
+FALSE=1
+dotfiles_dir="${HOME}/.zpm-dotfiles"
 
 ##
 # Check if zsh is installed
@@ -56,8 +56,8 @@ function print_error() {
     exit ${FALSE}
 }
 
-local ZSHRC_START_SYMBOL="# zpm load zpm-dotfiles"
-local ZSHRC_END_SYMBOL="# zpm end load zpm-dotfiles"
+ZSHRC_START_SYMBOL="# zpm load zpm-dotfiles"
+ZSHRC_END_SYMBOL="# zpm end load zpm-dotfiles"
 
 ##
 # check if the config to autoload the zpm dotfiles is already in the zshrc or not.
