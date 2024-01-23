@@ -83,7 +83,7 @@ function add_zshrc() {
     cat >> ~/.zshrc <<EOF
 ${ZSHRC_START_SYMBOL}
 if [[ -d ${dotfiles_dir} ]]; then
-    . ${ZPM_DIR}/bin/zpm run ${dotfiles_dir}/src/main.zsh
+    . ${ZPM_DIR}/bin/zpm run -w ${dotfiles_dir} ${dotfiles_dir}/src/main.zsh
 fi
 ${ZSHRC_END_SYMBOL}
 EOF
@@ -108,6 +108,13 @@ function install_zpm_dotfiles() {
     git clone  ${dotfiles_repo} ${dotfiles_dir}
 }
 
+##
+# remove the config for the zpm dotfiles in the zshrc
+##
+function remove_zshrc_conf() {
+    sed -i '' "/${ZSHRC_START_SYMBOL}/,/${ZSHRC_END_SYMBOL}/d" ~/.zshrc
+}
+
 check_zsh_exists || print_error "zsh is not installed"
 check_curl_exists || print_error "curl is not installed"
 check_git_exists || print_error "git is not installed"
@@ -119,8 +126,8 @@ fi
 
  install_zpm_dotfiles
  
-if ! check_zshrc; then
-    add_zshrc
-fi 
+check_zshrc && remove_zshrc_conf
+
+add_zshrc
 
 [ -f install.sh ] && rm -f install.sh
