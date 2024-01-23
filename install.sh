@@ -83,7 +83,7 @@ function add_zshrc() {
     cat >> ~/.zshrc <<EOF
 ${ZSHRC_START_SYMBOL}
 if [[ -d ${dotfiles_dir} ]]; then
-    ${ZPM_DIR}/bin/zpm run ${dotfiles_dir}/src/main.zsh
+    . ${ZPM_DIR}/bin/zpm run ${dotfiles_dir}/src/main.zsh
 fi
 ${ZSHRC_END_SYMBOL}
 EOF
