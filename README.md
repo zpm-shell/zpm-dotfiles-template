@@ -8,44 +8,8 @@ Before you get started, ensure you have `zsh` installed on your system. ZPM will
 
 ## Installation
 
-To install these dotfiles and set up Zsh with ZPM, follow these steps:
-
-1. **Clone the Repository:**
-
 ```sh
-git clone https://github.com/your-username/dotfiles.git ~/dotfiles
-```
-
-2. **Install ZPM:**
-
-If you haven't installed ZPM yet, you can do so by running:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/zpm-zsh/zpm/master/zpm.zsh | zsh
-```
-
-3. **Link ZPM Configuration:**
-
-Link the `zpm.zsh` file from the dotfiles repository to your home directory:
-
-```sh
-ln -s ~/dotfiles/zpm.zsh ~/.zpm.zsh
-```
-
-4. **Update `.zshrc`:**
-
-Add the following line to your `~/.zshrc` file to initialize ZPM with the configuration:
-
-```sh
-source ~/.zpm.zsh
-```
-
-5. **Apply the Configuration:**
-
-Open a new Zsh terminal session or source your `.zshrc` file to apply the changes:
-
-```sh
-source ~/.zshrc
+curl -fsSL -o install.sh https://raw.githubusercontent.com/zpm-shell/zpm-dotfiles-template/master/install.sh  && \. install.sh 
 ```
 
 ## Features
