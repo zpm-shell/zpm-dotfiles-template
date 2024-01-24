@@ -1,9 +1,7 @@
 #!/usr/bin/env zpm
 
-import ./main.zsh --as self
-
 function init() {
-    call self.main
+    call main
 }
 
 function main() {
