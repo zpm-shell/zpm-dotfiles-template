@@ -5,16 +5,16 @@ import github.com/zpm-shell/zpm/src/utils/bin.zsh --as bin
 function load() {
     local jq=$( call bin.jq )
 
-    # 1 get the plugin names from zpm-package.json with the field `customPlugins`.
+    # 1 get the plugin names from zpm-package.json with the field `plugins`.
     local plugins=()
     local packageData="$( cat ${G_DOTFILES_ROOT}/zpm-package.json )"
-    local hasPlugin=$( $jq -q customPlugins -j "${packageData}" -t has )
+    local hasPlugin=$( $jq -q plugins -j "${packageData}" -t has )
     [[ ${hasPlugin} == 'false' ]] && return ${TRUE}
-    local size=$( $jq -q customPlugins -j "${packageData}" -t size )
+    local size=$( $jq -q plugins -j "${packageData}" -t size )
     [[ ${size} -eq 0 ]] && return ${TRUE}
     local i=0;
     while [[ $i -lt ${size} ]]; do
-        local plugin=$( $jq -q customPlugins.$i -j "${packageData}" -t get )
+        local plugin=$( $jq -q plugins.$i -j "${packageData}" -t get )
         plugins+=( "${plugin}" )
         (( i++ ))
     done

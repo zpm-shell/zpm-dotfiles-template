@@ -2,8 +2,8 @@
 
 import ./providers/theme.zsh --as theme
 import ./providers/config.zsh --as conf
-import ./providers/custom_plugin.zsh --as custom_plugin
-import ./providers/lib.zsh --as lib
+import ./providers/plugin.zsh --as plugins
+import ./providers/lib.zsh --as libs
 
 G_DOTFILES_ROOT=${ZPM_WORKSPACE}
 
@@ -13,7 +13,7 @@ function init() {
 
 function main() {
     call conf.load
-    call lib.load
-    call custom_plugin.load
+    call libs.load
+    call plugins.load
     call theme.load
 }
