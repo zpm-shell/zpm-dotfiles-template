@@ -12,7 +12,6 @@ function load() {
     [[ ${hasPlugin} == 'false' ]] && return ${TRUE}
     local size=$( $jq -q customPlugins -j "${packageData}" -t size )
     [[ ${size} -eq 0 ]] && return ${TRUE}
-    echo  "size: ${size}"
     local i=0;
     while [[ $i -lt ${size} ]]; do
         local plugin=$( $jq -q customPlugins.$i -j "${packageData}" -t get )
