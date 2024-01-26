@@ -1,22 +1,31 @@
 {
-    "name": ".zpm-dotfiles-template",
-    "version": "0.0.1",
-    "description": "a zpm dotfiles",
-    "main": "src/main.zsh",
-    "scripts": {
-      "test": "zpm test"
-    },
-    "plugins": [
-        {
-            "name": "first-plugin",
-            "description": "This is the first plugin",
-            "file":"./src/plugins/first-plugin.zsh",
-            "entry": "main",
-            "cmd": "first-plugin"
-        }
-    ],
-    "packageType": "dotfiles",
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+  "name": ".zpm-dotfiles-template",
+  "version": "0.0.1",
+  "description": "a zpm dotfiles",
+  "main": "src/main.zsh",
+  "scripts": {
+    "test": "zpm test"
+  },
+  "plugins": [
+    {
+      "name": "first-plugin",
+      "description": "This is the first plugin",
+      "file": "./src/plugins/first-plugin.zsh",
+      "entry": "main",
+      "cmd": "first-plugin"
+    }
+  ],
+  "theme": {
+    "repository": "github.com/romkatv/powerlevel10k",
+    "conf": "./src/config/.p10k.zsh",
+    "dest": "~/.p10k.zsh"
+  },
+  "packageType": "dotfiles",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "github.com/romkatv/powerlevel10k": "bd0fa8a08f62a6e49f8a2ef47f5103fa840d2198",
+    "github.com/zpm-shell/zpm": "c1e51bfcdffc2bb26288d2374dca442cf0bc0200"
   }
+}
