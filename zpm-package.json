@@ -6,15 +6,6 @@
   "scripts": {
     "test": "zpm test"
   },
-  "plugins": [
-    {
-      "name": "first-plugin",
-      "description": "This is the first plugin",
-      "file": "./src/plugins/first-plugin.zsh",
-      "entry": "main",
-      "cmd": "first-plugin"
-    }
-  ],
   "theme": {
     "repository": "github.com/romkatv/powerlevel10k",
     "conf": "./src/config/.p10k.zsh",
@@ -24,8 +15,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "customPlugins": [
+    "github.com/zsh-users/zsh-syntax-highlighting"
+  ],
   "dependencies": {
     "github.com/romkatv/powerlevel10k": "bd0fa8a08f62a6e49f8a2ef47f5103fa840d2198",
-    "github.com/zpm-shell/zpm": "c1e51bfcdffc2bb26288d2374dca442cf0bc0200"
+    "github.com/zpm-shell/zpm": "c1e51bfcdffc2bb26288d2374dca442cf0bc0200",
+    "github.com/zsh-users/zsh-syntax-highlighting": "e0165eaa730dd0fa321a6a6de74f092fe87630b0"
   }
 }
