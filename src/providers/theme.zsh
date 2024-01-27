@@ -9,18 +9,14 @@ function load() {
     local version=$( $jq -j "$( cat ${zpmPackageJson} )" -q "dependencies.${theme//\./\\.}" -t get )
     local themeName=${theme##*/}
     local themeEntryFile=${ZPM_DIR}/packages/${theme}/${version}/${themeName}.zsh-theme
-    local hasDest=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.dest" -t has )
-    local hasConf=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.conf" -t has )
-    if [[ ${hasDest} == 'true' ]]; then
-        local dest=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.dest" -t get )
-        local conf=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.conf" -t get )
-        # remove the cofniguration file.
-        eval "[[ -f ${dest} ]] && rm -rf ${dest}"
-        conf=${G_DOTFILES_ROOT}/${conf}
-        conf=${conf:A}
-        eval "ln -s "${conf}" "${dest}""
-    fi
     if [[ -f $themeEntryFile ]]; then
+        local hasConf=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.conf" -t has )
+        if [[ ${hasConf} == 'true' ]]; then
+            local conf=$( $jq -j "$( cat ${zpmPackageJson} )" -q "theme.conf" -t get )
+            conf=${G_DOTFILES_ROOT}/${conf}
+            conf=${conf:A}
+            source ${conf}
+        fi
         source $themeEntryFile
     fi
 }

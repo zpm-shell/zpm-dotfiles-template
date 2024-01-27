@@ -8,8 +8,7 @@
   },
   "theme": {
     "repository": "github.com/romkatv/powerlevel10k",
-    "conf": "./src/config/.p10k.zsh",
-    "dest": "~/.p10k.zsh"
+    "conf": "./src/config/theme.zsh"
   },
   "packageType": "dotfiles",
   "keywords": [],
