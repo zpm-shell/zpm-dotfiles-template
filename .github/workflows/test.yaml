@@ -18,10 +18,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        centos: ["centos:centos8.4.2105", "centos:centos8"]
+        centos:
+          - "centos:centos8.4.2105"
+          # - "centos:centos8"
     env:
       CENTOS_VERSION: ${{ matrix.centos }}
+      CONTAINER_NAME: centos
     steps:
+      - name: Set container name
+        id: vars
+        run: |
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Conf the yum repository
