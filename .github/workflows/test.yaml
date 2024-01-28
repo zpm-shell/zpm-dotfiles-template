@@ -1,0 +1,41 @@
+name: Test Dotfiles
+
+on:
+  workflow_call: # This makes the workflow reusable
+  push:
+    branches:
+      - master
+      - dev
+      - fix
+      - feat
+      - tmp
+
+jobs:
+  # install the dotfiles in centos, run on centos docker images
+  install-centos:
+    name: Install Dotfiles on CentOS
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        centos: ["centos:centos8.4.2105", "centos:centos8"]
+    env:
+      CENTOS_VERSION: ${{ matrix.centos }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Conf the yum repository
+        run: |
+          docker run -itd -v $PWD:/workdir --name ${CONTAINER_NAME} -w /workdir ${CENTOS_VERSION}
+          docker exec ${CONTAINER_NAME} bash -c "
+            cd /etc/yum.repos.d/ && rm -rf * .??* && cd -
+            cat .github/conf/CentOS-Base.repo > /etc/yum.repos.d/CentOS-Base.repo
+            cat /etc/yum.repos.d/CentOS-Base.repo
+          "
+      - name: Install git curl zsh
+        run: |
+          docker exec ${CONTAINER_NAME} bash -c "
+            yum install -y git curl zsh
+          "
+
+      

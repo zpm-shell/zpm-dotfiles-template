@@ -1,0 +1,17 @@
+[BaseOS]
+name=CentOS-8 - Base
+baseurl=http://vault.centos.org/8.5.2111/BaseOS/$basearch/os/
+gpgcheck=0
+enabled=1
+
+[AppStream]
+name=CentOS-8 - AppStream
+baseurl=http://vault.centos.org/8.5.2111/AppStream/$basearch/os/
+gpgcheck=0
+enabled=1
+
+[extras]
+name=CentOS-8 - Extras
+baseurl=http://vault.centos.org/8.5.2111/extras/$basearch/os/
+gpgcheck=0
+enabled=1
