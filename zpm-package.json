@@ -15,6 +15,15 @@
   "author": "",
   "license": "ISC",
   "plugins": [
+    {
+      "name": "github.com/ohmyzsh/ohmyzsh",
+      "config": "./src/config/oh-my-zsh.zsh",
+      "entry": "oh-my-zsh.sh",
+      "subPlugin": {
+        "path": "plugins",
+        "name": [ "git", "z" ]
+      }
+    },
     "github.com/zsh-users/zsh-syntax-highlighting",
     "github.com/zsh-users/zsh-autosuggestions"
   ],
@@ -22,6 +31,7 @@
     "github.com/romkatv/powerlevel10k": "bd0fa8a08f62a6e49f8a2ef47f5103fa840d2198",
     "github.com/zpm-shell/zpm": "c1e51bfcdffc2bb26288d2374dca442cf0bc0200",
     "github.com/zsh-users/zsh-syntax-highlighting": "e0165eaa730dd0fa321a6a6de74f092fe87630b0",
-    "github.com/zsh-users/zsh-autosuggestions": "c3d4e576c9c86eac62884bd47c01f6faed043fc5"
+    "github.com/zsh-users/zsh-autosuggestions": "c3d4e576c9c86eac62884bd47c01f6faed043fc5",
+    "github.com/ohmyzsh/ohmyzsh": "80c114cb3a64044ea50b623f96a35bc022db5e8d"
   }
 }
