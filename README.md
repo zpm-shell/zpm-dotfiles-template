@@ -9,7 +9,7 @@ Before you get started, ensure you have `zsh` installed on your system. ZPM will
 ## Installation
 
 ```sh
-curl -fsSL -o install.sh https://raw.githubusercontent.com/zpm-shell/zpm-dotfiles-template/master/install.sh  && \. install.sh 
+curl -fsSL -o install.sh https://raw.githubusercontent.com/zpm-shell/zpm-dotfiles-template/master/install.sh  && source install.sh 
 ```
 
 ## Features
