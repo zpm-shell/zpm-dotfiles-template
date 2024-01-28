@@ -25,9 +25,6 @@ jobs:
       CENTOS_VERSION: ${{ matrix.centos }}
       CONTAINER_NAME: centos
     steps:
-      - name: Set container name
-        id: vars
-        run: |
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Conf the yum repository
