@@ -40,5 +40,10 @@ jobs:
           docker exec ${CONTAINER_NAME} bash -c "
             yum install -y git curl zsh
           "
+      - name: Install dotfiles
+        run: |
+          docker exec ${CONTAINER_NAME} bash -c "
+            git clone
+          "
 
       

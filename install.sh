@@ -137,4 +137,5 @@ add_zshrc
 
 [ -f install.sh ] && rm -f install.sh
 
-source ~/.zshrc # load the dotfiles in the current shell.
+# install zpm dotfiles successfully, please restart your terminal.
+printf "%s\n" "\033[32mSUCCESS\033[0m zpm dotfiles installed successfully, please restart your terminal."
